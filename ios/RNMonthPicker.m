@@ -31,8 +31,11 @@ NSInteger selectedYearRow;
 {
     if ((self = [super initWithFrame:frame])) {
         self.delegate = self;
-        gregorian = [NSCalendar currentCalendar];
+        // gregorian = [NSCalendar currentCalendar];
+        // df = [[NSDateFormatter alloc] init];
+        gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
         df = [[NSDateFormatter alloc] init];
+        df.calendar = gregorian;
         [df setDateFormat:@"MMMM"];
         _value = nil;
         _minimumDate = nil;
